@@ -1,8 +1,10 @@
 <?php
 
 use Slim\Http\Request;
+use Slim\Http\Response;
 use Model\Dao\User;
 
+$app->get('/vote/', function (Request $request, Response $response){
 
     // Render index view
     return $this->view->render($response, 'vote/vote.twig', $data);
