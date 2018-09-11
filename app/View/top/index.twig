@@ -26,25 +26,10 @@
     </div>
     <div class="col-md-10">
 	   <ul class="list-group">
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+	    {% for row in record %}
+        <li class="list-group-item ichiran"><h5>{{ row.title }}</h5><br><h6>票数:  {{ row.vote }}</h6><br>残り時間</li>
+        {% endfor %}
+
      </ul>
     </div>
    </div>
