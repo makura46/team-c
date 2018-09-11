@@ -7,7 +7,7 @@ use Model\Dao\Theme;
 use Model\Dao\Vote;
 
 $app->get('/vote/', function (Request $request, Response $response){
-
+    $data = array();
     // Render index view
     return $this->view->render($response, 'vote/index.twig', $data);
 
