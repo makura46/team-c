@@ -17,6 +17,8 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
 
     $param["id"] = $args['id'];
     $theme = $theme_dao->select($param, "", "", true);
+
+    $param["name"] = $data["name"];
     $items = $items_dao->select($param, "", "", true);
     var_dump($item);
 
@@ -26,7 +28,7 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
     
 
     $data["theme"] = $theme;
-    $data["item"] = $items;
+    $data["items"] = $items;
 
     // Render index view
     return $this->view->render($response, 'theme/theme.twig', $data);
