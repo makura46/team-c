@@ -74,7 +74,29 @@ form {
   text-align: center;
   text-transform: uppercase;
   transition: background 0.3s ease-in-out;
-  width: 100%;
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+.add-button-panel .button {
+  width: 500px;
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 50%;
+  margin-top: 25px;
+  justify-content: center;
+  margin-left: 70px;
 }
 
 .button:hover {
@@ -98,6 +120,7 @@ form {
 }
 
 .login-form {
+  height: 280px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #4e7a89;
@@ -137,4 +160,12 @@ form {
   text-align: center;
   margin: 0 auto;
   justify-content: center;
+}
+
+.imadesyo{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 100px;
 }
