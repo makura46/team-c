@@ -16,3 +16,7 @@ body{
 .outline-project h1{
 	font-size: 80px;
 }
+
+.outline-project p{
+	font-size: 18px;
+}
