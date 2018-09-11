@@ -6,7 +6,7 @@ use Slim\Http\Response;
 // TOPページのコントローラ
 $app->get('/', function (Request $request, Response $response) {
 
-	$session = $this->session("user_info");
+	$session = $this->session->get("user_info");
 	if (!empty($session)) {
 		return $response->withRedirect('/top/index.twig');
 	}
