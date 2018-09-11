@@ -8,12 +8,12 @@ $app->get('/', function (Request $request, Response $response) {
 
 	$session = $this->session->get("user_info");
 	if (!empty($session)) {
-		return $response->withRedirect('/top/index.twig');
+		return $response->withRedirect('/top/');
 	}
 
 	$data = [];
 
-	return $this->view->render($response, '/index/index.twig', $data);
+	return $this->view->render($response, '/index/', $data);
 
 }); 
 

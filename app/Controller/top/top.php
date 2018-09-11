@@ -9,7 +9,7 @@ use Model\Dao\Items;
 $app->get('/top/', function (Request $request, Response $response) {
 	$session = $this->session->get("user_info");
 	if (empty($session)) {
-		return $response->withRedirect('/index/index.twig');
+		return $response->withRedirect('/index/');
 	}
 
 	$theme = new Theme($this->db); // Themeテーブルのインスタンスを作成
@@ -32,6 +32,6 @@ $app->get('/top/', function (Request $request, Response $response) {
 	$data['record'] = $data;
 
 	// Render index view
-	return $this->view->render($response, '/top/index.twig', $data);
+	return $this->view->render($response, '/top/', $data);
 
 });
