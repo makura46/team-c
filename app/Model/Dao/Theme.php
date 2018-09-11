@@ -3,9 +3,9 @@
 namespace Model\Dao;
 
 /**
- * Class User
+ * Class Theme
  *
- * Userテーブルを扱う Classです
+ * Themeテーブルを扱う Classです
  * DAO.phpに用意したCRUD関数以外を実装するときに、記載をします。
  *
  * @copyright Ceres inc.
