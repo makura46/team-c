@@ -1,0 +1,57 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}マイページ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>会員情報</h1>
+    </div>
+<div class="container">
+    <div class="box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-group">
+                        <label for="email" class="control-label">保持ポイント</label>
+                        <br>
+                        <h2>{{ session.user_info.point | number_format() }}pt</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">メールアドレス</label>
+                        <br>
+                        {{ session.user_info.email }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label"> ニックネーム</label>
+                        <br>
+                        {{ session.user_info.name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">郵便番号</label>
+                        <br>
+                        {{ session.user_info.zipcode }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">住所</label>
+                        <br>
+                        {{ session.user_info.address }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">電話番号</label>
+                        <br>
+                        {{ session.user_info.tel }}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
