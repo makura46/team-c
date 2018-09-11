@@ -1935,6 +1935,12 @@ a:focus {
   cursor: move;
   margin: 0 5px;
 }
+@gray-base: #000;
+@brand-primary: darken(#428bca, 6.5%); 
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
 /* Chat widget (DEPRECATED - this will be removed in the next major release. Use Direct Chat instead)*/
 .chat {
   padding: 5px 20px 5px 10px;
@@ -2227,7 +2233,7 @@ a:focus {
 .btn-default:hover,
 .btn-default:active,
 .btn-default.hover {
-  background-color: #e7e7e7;
+  background-color: #ffe6e6;
 }
 .btn-primary {
   background-color: #3c8dbc;
@@ -2236,7 +2242,7 @@ a:focus {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #367fa9;
+  background-color: #3797ce;
 }
 .btn-success {
   background-color: #00a65a;
@@ -2245,7 +2251,7 @@ a:focus {
 .btn-success:hover,
 .btn-success:active,
 .btn-success.hover {
-  background-color: #008d4c;
+  background-color: #0cc971;
 }
 .btn-info {
   background-color: #00c0ef;
@@ -2254,7 +2260,7 @@ a:focus {
 .btn-info:hover,
 .btn-info:active,
 .btn-info.hover {
-  background-color: #00acd6;
+  background-color: #17c6f1;
 }
 .btn-danger {
   background-color: #dd4b39;
@@ -2263,7 +2269,7 @@ a:focus {
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger.hover {
-  background-color: #d73925;
+  background-color: #e6260d;
 }
 .btn-warning {
   background-color: #f39c12;
@@ -2272,7 +2278,7 @@ a:focus {
 .btn-warning:hover,
 .btn-warning:active,
 .btn-warning.hover {
-  background-color: #e08e0b;
+  background-color: #f79b07;
 }
 .btn-outline {
   border: 1px solid #fff;
