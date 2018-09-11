@@ -35,7 +35,7 @@ return [
                 'port' => '3306',
                 'user' => 'team-c',
                 'password' => 'team-c!',
-                'dbname' => 'teamc',
+                'dbname' => 'team-c',
                 'charset' => 'utf8'
             ]
         ]
