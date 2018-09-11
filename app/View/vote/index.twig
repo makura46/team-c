@@ -7,8 +7,6 @@
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
 <link rel="stylesheet" href="/assets/css/oreno.css">
-
-
 <link rel="stylesheet" href="/assets/css/adminlte.min.css">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -20,7 +18,10 @@
 <body class="sidebar-mini sidebar-collapse">
   <div class="box box-primary">
     <div class="box-header with-border">
-      <h5 class="box-title">ThemeID</h5>
+      <label class="theme-title">
+        <!-- title{name}のような変数を代入 -->
+        日本で一番うまいお茶決定戦！
+      </label>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
@@ -28,19 +29,19 @@
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="form-group col-md-5 lead">
-            <div class="checkbox">
+            <div class="radio-box">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="candidate" value="1" checked="">綾鷹
             </label>
             </div>
-            <div class="checkbox">
+            <div class="radio-box">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="candidate" value="2" >お〜いお茶
             </label>
             </div>
-            <div class="checkbox">
+            <div class="radio-box">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="candidate" value="3" >生茶
             </label>
             </div>
           </div>
@@ -49,7 +50,7 @@
       <!-- /.box-body -->
 
       <div class="box-footer">
-        <button type="submit" class="btn btn-success center-block">Submit</button>
+        <button type="submit" class="btn btn-success center-block">投票する！</button>
       </div>
     </form>
   </div>

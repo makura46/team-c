@@ -4,29 +4,38 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Model\Dao\User;
 use Model\Dao\Theme;
-use Model\Dao\Vote;
-use Model\Dao\Items;
+use Model\Dao\theme;
 
-$app->get('/theme/{id}', function (Request $request, Response $response, $args){
+$app->get('/theme/', function (Request $request, Response $response){
+    $data = array();
+    // Render index view
+    return $this->view->render($response, 'theme/index.twig', $data);
 
-    //GETされた内容を取得します。
-    $data = $request->getQueryParams();
+});
 
-    $theme_dao = new Theme($this->db);
-    $items_dao = new Items($this->db);
+$app->post('/theme/', function (Request $request, Response $response) {
 
-    $param["id"] = $args['id'];
-    $theme = $theme_dao->select($param, "", "", true);
-    $items = $items_dao->select($param, "", "", true);
-    var_dump($item);
+    //themeDAOをインスタンス化
+    $theme = new Theme($this->db);
 
-    /*{% for itemId in items %}
-    <p>{{item.name}}</p>
-    {% endfor %}*/
-    
+    //POSTされた内容を取得します
+    $data = $request->getParsedBody();
+    $param["id"] = $data["id"];
 
-    $data["theme"] = $theme;
-    $data["item"] = $items;
+    $result = $theme->select($param, "", "", "", true);
+
+    if($result == $param["id"]){
+        $data["theme"] = $data["theme"] + 1;
+        $theme->update($data);
+        var_dump($data);
+    }
+
+    $param["title"] = $data["title"];
+    $param["theme"] = $data["theme"];
+    $param["themeID"] = $data["themeID"];
+
+    //入力された情報から比べる物を取得
+    $data = $theme->select($param, "", "", "", true);
 
     // Render index view
     return $this->view->render($response, 'theme/theme.twig', $data);
