@@ -9,7 +9,7 @@ use Model\Dao\User;
 $app->get('/resign/', function (Request $request, Response $response) {
 
     //GETされた内容を取得します。
-    $data = $request->getQueryParams();
+    $data = [];
 
     // Render index view
     return $this->view->render($response, 'resign/resign.twig', $data);
