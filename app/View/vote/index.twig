@@ -27,20 +27,20 @@
     <form role="form">
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
-          <div class="form-group col-md-5 lead">
-            <div class="checkbox">
+          <div class="col-md-5 lead">
+            <div class="radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="1"> Check me out
             </label>
             </div>
-            <div class="checkbox">
+            <div class="radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="2"> Check me out
             </label>
             </div>
-            <div class="checkbox">
+            <div class="radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="3"> Check me out
             </label>
             </div>
           </div>
@@ -61,4 +61,19 @@
 <script src="/assets/js/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/adminlte.min.js"></script>{% endblock %}
+<script src="/assets/js/adminlte.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+var number;
+$(function(){
+    $('input').click(function(){
+        if($(this).val() == number) {
+            $(this).prop('checked', false);
+            number = 0;
+        } else {
+            number = $(this).val();
+        }
+    });
+});
+</script>
+{% endblock %}
