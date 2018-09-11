@@ -2,11 +2,11 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Model\Dao\Title;
+use Model\Dao\Tornament;
 
 
 // 会員登録ページコントローラ
-$app->get('/add', function (Request $request, Response $response) {
+$app->get('/add/', function (Request $request, Response $response) {
 
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
@@ -17,7 +17,7 @@ $app->get('/add', function (Request $request, Response $response) {
 });
 
 // 会員登録処理コントローラ
-$app->post('/add', function (Request $request, Response $response) {
+$app->post('/add/', function (Request $request, Response $response) {
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();
