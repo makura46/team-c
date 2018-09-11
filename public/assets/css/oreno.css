@@ -1,9 +1,9 @@
 .hidarinohako{
-  padding-left: 50px;
-  padding-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .mannakanohako{
-  padding-right: 100px;
+  margin: 100px;
 
 }
 .btn-decide{
@@ -20,4 +20,8 @@
   color: #fff;
   background-color: #819FF7;
   border-color: #fff;
+}
+.frex{
+  display: flex;
+  flex-wrap: wrap;
 }
