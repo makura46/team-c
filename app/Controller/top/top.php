@@ -7,9 +7,9 @@ use Model\Dao\Items;
 
 // TOPページのコントローラ
 $app->get('/top/', function (Request $request, Response $response) {
-	$session = $this->session("user_info");
+	$session = $this->session->get("user_info");
 	if (empty($session)) {
-		return $response->withRedirect('/');
+		return $response->withRedirect('/index/');
 	}
 
 	$theme = new Theme($this->db); // Themeテーブルのインスタンスを作成
