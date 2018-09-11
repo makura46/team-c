@@ -17,8 +17,8 @@ $app->get('/', function (Request $request, Response $response) {
 	// テーマIDを利用し、票数の合計を取得
 	for ($i = 0; $i < 9999; $i++) {	
 		$sum = 0;
-		if (isset($data[$i]['themeID']) {
-			$search['themeID'] = $data[$i]['themeID'];
+		if (isset($data[$i]['id']) {
+			$search['id'] = $data[$i]['id'];
 			$cnt = $theme->select($search, "", "", 9999, true);	// Voteテーブルのカラムを取得
 			for ($j = 0; $j < 9999; $j++) {
 				if (isset($cnt[$j]['vote']) {
