@@ -13,6 +13,8 @@ $app->get('/', function (Request $request, Response $response) {
 
 	$data = $theme->select($param, "", "", 9999, true);  // Themeテーブルから9999件のデータを取得
 
+	for ($data['theme'] as $
+
     // Render index view
     return $this->view->render($response, 'top/index.twig', $data);
 });
