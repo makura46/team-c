@@ -8,31 +8,24 @@ if (PHP_SAPI == 'cli-server') {
         return false;
     }
 }
-
 require __DIR__ . '/../vendor/autoload.php';
-
 // APPを作ります
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
-
 //SLIMのセッションを扱えるようにします
 $app->add(new \Slim\Middleware\Session([
     'name'        => 'slim_session',
     'autorefresh' => true,
     'lifetime'    => '1 hour'
 ]));
-
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
-
 // Register middleware
 require __DIR__ . '/../src/middleware.php';
-
 // load routes
-$routers = glob(__DIR__ . '/../app/Controller/*/*.php');
+$routers = glob(__DIR__ . '/../app/Controller/*/*.*');
 foreach ($routers as $router) {
     require $router;
 }
-
 // Run app
 $app->run();
