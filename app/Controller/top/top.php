@@ -9,5 +9,5 @@ $app->get('/top/', function (Request $request, Response $response) {
    $data = [];
 
    // Render index view
-   return $this->view->render($response, 'top/index.twig', $data);
+   return $this->view->render($response, '/top/index.twig', $data);
 });
