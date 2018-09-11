@@ -9,7 +9,7 @@ use Model\Dao\Vote;
 $app->get('/vote/', function (Request $request, Response $response){
 
     // Render index view
-    return $this->view->render($response, 'vote/vote.twig', $data);
+    return $this->view->render($response, 'vote/index.twig', $data);
 
 });
 

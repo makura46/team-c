@@ -4,7 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // TOPページのコントローラ
-$app->get('/', function (Request $request, Response $response) {
+$app->get('/top/', function (Request $request, Response $response) {
 
    $data = [];
 
