@@ -1,50 +1,31 @@
 <?php
-
-use Slim\Http\Request;
-use Slim\Http\Response;
-use Model\Dao\User;
-
-// ログイン画面コントローラ
-$app->get('/login/', function (Request $request, Response $response) {
-
-    //GETされた内容を取得します。
-    $data = $request->getQueryParams();
-
-    // Render index view
-    return $this->view->render($response, 'login/login.twig', $data);
-
-});
-
-// ログインロジックコントローラ
-$app->post('/login/', function (Request $request, Response $response) {
-
-    //POSTされた内容を取得します
-    $data = $request->getParsedBody();
-
-    //ユーザーDAOをインスタンス化
-    $user = new User($this->db);
-
-    $param["email"] = $data["email"];
-    $param["password"] = $data["password"];
-
-    //入力された情報から会員情報を取得
-    $result = $user->select($param, "", "", 1,false);
-
-    //結果が取得できたらログイン処理を行い、TOPへリダイレクト
-    if($result){
-
-        //セッションにユーザー情報を登録
-        $this->session->set('user_info', $result);
-
-        //TOPへリダイレクト
-        return $response->withRedirect('/top');
-
-    } else {
-        //入力項目がマッチしない場合エラーを出す
-        $data["error"] = "ユーザー名かパスワードが間違っています";
+if (PHP_SAPI == 'cli-server') {
+    // To help the built-in PHP dev server, check if the request was actually for
+    // something which should probably be served as a static file
+    $url = parse_url($_SERVER['REQUEST_URI']);
+    $file = __DIR__ . $url['path'];
+    if (is_file($file)) {
+        return false;
     }
-
-    // Render index view
-    return $this->view->render($response, 'login/login.twig', $data);
-
-});
+}
+require __DIR__ . '/../vendor/autoload.php';
+// APPを作ります
+$settings = require __DIR__ . '/../src/settings.php';
+$app = new \Slim\App($settings);
+//SLIMのセッションを扱えるようにします
+$app->add(new \Slim\Middleware\Session([
+    'name'        => 'slim_session',
+    'autorefresh' => true,
+    'lifetime'    => '1 hour'
+]));
+// Set up dependencies
+require __DIR__ . '/../src/dependencies.php';
+// Register middleware
+require __DIR__ . '/../src/middleware.php';
+// load routes
+$routers = glob(__DIR__ . '/../app/Controller/*/*.*');
+foreach ($routers as $router) {
+    require $router;
+}
+// Run app
+$app->run();
