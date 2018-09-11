@@ -18,11 +18,14 @@ $app->post('/vote/', function (Request $request, Response $response) {
     //themeDAOをインスタンス化
     $theme = new Theme($this->db);
 
+    //POSTされた内容を取得します
+    $data = $request->getParsedBody();
+
     $param["title"] = $data["title"];
     //$param["vote"] = $data["vote"];
     $param["themeID"] = $data["themeID"];
 
-    //入力された情報から会員情報を取得
+    //入力された情報から比べる物を取得
     $data = $theme->select($param, "", "", 9999, true);
 
     // Render index view
