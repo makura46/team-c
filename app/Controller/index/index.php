@@ -8,7 +8,7 @@ $app->get('/', function (Request $request, Response $response) {
 
 	$session = $this->session("user_info");
 	if (!empty($session)) {
-		return $response->withRedirect('/top');
+		return $response->withRedirect('/top/index.twig');
 	}
 
 	$data = [];

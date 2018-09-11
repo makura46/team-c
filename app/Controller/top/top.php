@@ -9,7 +9,7 @@ use Model\Dao\Items;
 $app->get('/top/', function (Request $request, Response $response) {
 	$session = $this->session("user_info");
 	if (empty($session)) {
-		return $response->withRedirect('/');
+		return $response->withRedirect('/index/index.twig');
 	}
 
 	$theme = new Theme($this->db); // Themeテーブルのインスタンスを作成
