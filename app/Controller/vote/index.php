@@ -8,6 +8,9 @@ use Model\Dao\Vote;
 
 $app->get('/vote/', function (Request $request, Response $response){
 
+    //GETされた内容を取得します。
+    $data = $request->getQueryParams();
+
     // Render index view
     return $this->view->render($response, 'vote/vote.twig', $data);
 
