@@ -32,6 +32,6 @@ $app->get('/top/', function (Request $request, Response $response) {
 	$data['record'] = $data;
 
 	// Render index view
-	return $this->view->render($response, '/top/', $data);
+	return $this->view->render($response, '/top/index.twig', $data);
 
 });

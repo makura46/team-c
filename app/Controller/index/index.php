@@ -13,7 +13,7 @@ $app->get('/', function (Request $request, Response $response) {
 
 	$data = [];
 
-	return $this->view->render($response, '/index/', $data);
+	return $this->view->render($response, '/index/index.twig', $data);
 
 }); 
 
