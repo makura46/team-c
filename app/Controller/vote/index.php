@@ -17,16 +17,27 @@ $app->post('/vote/', function (Request $request, Response $response) {
 
     //themeDAOをインスタンス化
     $theme = new Theme($this->db);
+    $vote = new Vote($this->db);
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();
 
+    //if($data = )
+    var_dump($data);
+
+    /*$('button').click(function() {
+        if($(this).prop('checked') == true){
+            $data["vote"] = $data["vote"] + 1;
+            $theme->update($data);
+        }
+    });*/
+
     $param["title"] = $data["title"];
-    //$param["vote"] = $data["vote"];
-    $param["themeID"] = $data["themeID"];
+    $param["vote"] = $data["vote"];
+    $param["id"] = $data["id"];
 
     //入力された情報から比べる物を取得
-    $data = $theme->select($param, "", "", 9999, true);
+    $data = $theme->select($param, "", "", "", true);
 
     // Render index view
     return $this->view->render($response, 'vote/vote.twig', $data);
