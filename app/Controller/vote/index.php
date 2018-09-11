@@ -24,20 +24,19 @@ $app->post('/vote/', function (Request $request, Response $response) {
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();
+    $param["id"] = $data["id"];
 
-    //if($data = )
-    var_dump($data);
+    $result = $vote->select($param, "", "", "", true);
 
-    /*$('button').click(function() {
-        if($(this).prop('checked') == true){
-            $data["vote"] = $data["vote"] + 1;
-            $theme->update($data);
-        }
-    });*/
+    if($result == $param["id"]){
+        $data["vote"] = $data["vote"] + 1;
+        $theme->update($data);
+        var_dump($data);
+    }
 
     $param["title"] = $data["title"];
     $param["vote"] = $data["vote"];
-    $param["id"] = $data["id"];
+    $param["themeID"] = $data["themeID"];
 
     //入力された情報から比べる物を取得
     $data = $theme->select($param, "", "", "", true);

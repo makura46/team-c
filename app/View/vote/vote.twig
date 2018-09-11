@@ -15,13 +15,15 @@
     </div>
     
     <div class="sample">
-        <input type="radio" name="example" value=1>
-        <input type="text" name="title" value="おーいお茶">
+        <input type="radio" name="button" value=1>
+        <input type="text" value="おーいお茶">
+        <p>{{vote.vote}}</p>
         <br/>
-        <input type="radio" name="example" value=2>
-        <input type="text" name="title" value="生茶">
+        <input type="radio" name="button" value=2>
+        <input type="text" value="生茶">
+        <p>{{vote.vote}}</p>
         <br/>
-        <input type="submit" name="button" value="投票">
+        <input type="submit" value="投票">
         
     </div>
 {% endblock %}
