@@ -7,13 +7,15 @@ use Model\Dao\Theme;
 // TOPページのコントローラ
 $app->get('/', function (Request $request, Response $response) {
 
-	$theme = new Theme($this->db);
+	$theme = new Theme($this->db); // Themeテーブルのインスタンスを作成
 
-	$param['title'] = '%';
+	$param['theme'] = '%';
 
-	$data = $theme->select($param, "", "", );
+	$data = $theme->select($param, "", "", 9999, true);  // Themeテーブルから9999件のデータを取得
 
-	
+	for ($data as $var) {
+		echo $var . '<br>';
+	}
 
     // Render index view
     return $this->view->render($response, 'top/index.twig', $data);
