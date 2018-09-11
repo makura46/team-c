@@ -6,21 +6,59 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/oreno.css">
+
+
+<link rel="stylesheet" href="/assets/css/adminlte.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
+
 {% block page_content %}
-    <div class="page-header text-center">
-        <h1>サービス名</h1>
-    </div>
-    <div class="container">
-        <div class="box">
-            <div class="row">
-                ここにコンテンツが入る
-            </div>
-        </div>
-    </div>
+<body class="sidebar-mini sidebar-collapse">
+	<!-- Main content -->
+<div class="mainnohako">
+  <div class="col-md-2">
+    <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
+    <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
+  </div>
+  <div class="col-md-10">
+	     <ul class="list-group">
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
+
+	     </ul>
+  </div>
+</div>
+   <!-- /.content-wrapper -->
+
+
+
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+{% block footer_scripts_add %}<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/adminlte.min.js"></script>{% endblock %}

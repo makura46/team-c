@@ -1,0 +1,27 @@
+.hidarinohako{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.mannakanohako{
+  margin: 100px;
+
+}
+.btn-decide{
+  color: #819FF7;
+  background-color: #fff;
+  border-color: #819FF7;
+}
+.btn-decide:hover{
+    color: #fff;
+    background-color: #819FF7;
+    border-color: #fff;
+}
+.ichiran:hover{
+  color: #fff;
+  background-color: #819FF7;
+  border-color: #fff;
+}
+.frex{
+  display: flex;
+  flex-wrap: wrap;
+}
