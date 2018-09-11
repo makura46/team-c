@@ -4,7 +4,6 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Model\Dao\Tornament;
 
-
 // 会員登録ページコントローラ
 $app->get('/add/', function (Request $request, Response $response) {
 
