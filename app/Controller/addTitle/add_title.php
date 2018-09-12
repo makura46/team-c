@@ -35,9 +35,8 @@ $app->post('/add/', function (Request $request, Response $response) {
 	$theme = new Theme($this->db);
 	$items = new Items($this->db);
 
-    //入力されたメールアドレスの会員が登録済みかどうかをチェックします
 	$check = $theme->select(array("title" => $data["title"]));
-    if (!isset($check)) {
+    if ($check) {
 
         //入力項目がマッチしない場合エラーを出す
         $data["error"] = "この大会名は入力済みです";
