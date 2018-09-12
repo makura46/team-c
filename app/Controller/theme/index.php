@@ -4,7 +4,6 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Model\Dao\User;
 use Model\Dao\Theme;
-use Model\Dao\theme;
 
 $app->get('/theme/', function (Request $request, Response $response){
     $data = array();

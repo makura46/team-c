@@ -1,3 +1,8 @@
+p{
+  text-align: center;
+  padding-bottom: 40px;
+}
+
 .hidarinohako{
   margin-left: 50px;
   margin-right: 50px;
@@ -32,7 +37,7 @@
   text-align: center;
   justify-content: center;
   margin-bottom: 50px;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
   font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
   border-bottom: double 12px orange;
