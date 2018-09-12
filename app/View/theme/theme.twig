@@ -29,15 +29,15 @@
 
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form" method="post" action="/theme/">
+    <form role="form" method="post" action="/theme/" id="form_id">
       <div class="box-body">
-        <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
+        <img src="{{ theme.imgPath }}" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="col-md-5 lead">
             投票に賭けるポイント
               <select class="select-point" name="point">
-                <option value="100">100</option>
-                <option value="200">200</option>
-                <option value="300">300</option>
+                <option value="100">100pt</option>
+                <option value="200">200pt</option>
+                <option value="300">300pt</option>
               </select>
             <div class="select-radio">
             <label>
@@ -79,5 +79,16 @@ $(function(){
         }
     });
 });
+
+$('#form_id').submit(function() {
+
+
+    if ($("input[name='item']:checked").val() === undefined) {
+        alert("チェック入れてね")
+        return false;
+    }
+
+});
+
 </script>
 {% endblock %}
