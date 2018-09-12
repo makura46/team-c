@@ -46,11 +46,21 @@ $app->post('/add/', function (Request $request, Response $response) {
 
     }
 
+	$filePath;
+	$savePath;
+
+	if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+		$savePath = '/assets/img/';
+		$savePath .= basename($_FILES['file']['name']);
+		$filePath = '/opt/2020/app/teamc/project/public' . $savePath;
+		move_uploaded_file($_FILES['file']['tmp_name'], $filePath);
+	}
+
 	$created = date('Y-m-d H:i:s');
 	$start = $created;
 	$finish = date('Y-m-d H:i:s', strtotime('+10 minute'));
 
-	$themeID = $theme->insert(array("title"=>$data["title"], "detail"=>$data["detail"], "imgPath"=>"", "start"=>$start, "finish"=>$finish, "created"=>$created));
+	$themeID = $theme->insert(array("title"=>$data["title"], "detail"=>$data["detail"], "imgPath"=>$savePath, "start"=>$start, "finish"=>$finish, "created"=>$created));
 
 	foreach ($data as $key => $val) {
 		if ($key == 'title' || $key == 'detail') {
