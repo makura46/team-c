@@ -1,4 +1,5 @@
 <?php
+namespace Model\Business;
 
 use Model\Dao\Vote;
 use Model\Dao\User;
