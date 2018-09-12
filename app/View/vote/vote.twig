@@ -6,16 +6,26 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-  <div class="our-projects-name">
-    <h3>俺たちのNo.1決定戦<h3>
-    	<!-- ここの文言もどうする？ -->
-    <p>あなたもオリンピックに参加しませんか</p>
-  </div>              
+    <div class="page-header text-center">
+        <h1>サービス名</h1>
+    </div>
+    
+    <div class="sample">
+        <input type="radio" name="button" value=1>
+        <input type="text" id= value="おーいお茶">
+        <p>{{vote.vote}}</p>
+        <br/>
+        <input type="radio" name="button" value=2>
+        <input type="text" value="生茶">
+        <p>{{vote.vote}}</p>
+        <br/>
+        <input type="submit" value="投票">
+        
+    </div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

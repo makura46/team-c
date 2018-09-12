@@ -1,0 +1,65 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}theme{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/oreno.css">
+
+
+<link rel="stylesheet" href="/assets/css/adminlte.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+
+{% block page_content %}
+<body class="sidebar-mini sidebar-collapse">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h5 class="box-title">ThemeID</h5>
+      <h5 class="box-title">{{theme.title}}</h5>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+      <div class="box-body">
+        <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
+          <div class="form-group col-md-5 lead">
+            <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+            </div>
+            <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+            </div>
+            <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+            </div>
+          </div>
+          <button type="" class="btn btn-primary btn-circle">+</button>
+      </div>
+      <!-- /.box-body -->
+
+      <div class="box-footer">
+        <button type="submit" class="btn btn-success center-block">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/adminlte.min.js"></script>{% endblock %}

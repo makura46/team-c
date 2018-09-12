@@ -19,7 +19,7 @@
 <body class="sidebar-mini sidebar-collapse">
 	<!-- Main content -->
   <div class="mainnohako">
-    
+      {% for row in record %}
     <div class="col-md-12">
 	   <h2 class＝"page-header">Theme</h2>
      <div class="row">
@@ -45,7 +45,9 @@
           </a>
         </div>
       <!-- /Items -->
-      <!-- Items -->
+         {% endfor %}
+
+         <!-- Items -->
       <div class="col-md-4 link">
         <a href="">
           <!-- Box Comment -->
@@ -177,7 +179,7 @@
           </a>
         </div>
         <!-- /Items -->
-        
+
     </div>
    </div>
  </body>
