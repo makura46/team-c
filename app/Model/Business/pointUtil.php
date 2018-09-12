@@ -63,7 +63,6 @@ Class PointUtil
 
     public function subPoint($user_id, $sub_point, $item_id)
     {
-
         //マイナスポイントが指定された場合
         if ($sub_point <= 0) {
             return "指定ポイント数が異常です";

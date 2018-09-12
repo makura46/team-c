@@ -29,20 +29,20 @@
 
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form">
+    <form role="form" method="post" action="/theme/">
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="col-md-5 lead">
             投票に賭けるポイント
-              <select class="select-point">
-                <option>100</option>
-                <option>200</option>
-                <option>300</option>
+              <select class="select-point" name="point">
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
               </select>
             <div class="select-radio">
             <label>
             {% for row in items %}
-              <input type="radio" name="item" value="{{row.itemId}}"> {{row.name}} <br>
+              <input type="radio" name="item" value="{{row.itemId}}" id="{{row.itemId}}"><label for="{{row.itemId}}">{{row.name}}</label><br>
             {% endfor %}
             </label>
             </div>
@@ -54,6 +54,7 @@
         <button type="submit" class="btn btn-success center-block">投票する！</button>
         <span class="pull-right text-muted">sum(vote) / Time</span>
       </div>
+      <input type="hidden" name="userId" value="{{session.user_info.id}}">
     </form>
   </div>
 </body>
