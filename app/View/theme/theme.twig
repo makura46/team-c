@@ -32,13 +32,18 @@
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="col-md-5 lead">
+            投票に賭けるポイント
+              <select class="select-point">
+                <option>100</option>
+                <option>200</option>
+                <option>300</option>
+              </select>
             <div class="select-radio">
-            {% for row in items %}
             <label>
-              <input type="radio" name="item" value="{{row.itemId}}">
-              <h5>{{row.name}}</h5>
-            </label>
+            {% for row in items %}
+              <input type="radio" name="item" value="{{row.itemId}}"> {{row.name}} <br>
             {% endfor %}
+            </label>
             </div>
           </div>
       </div>
