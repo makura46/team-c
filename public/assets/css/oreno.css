@@ -1,6 +1,6 @@
-p{
+.p{
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 5px;
 }
 
 .hidarinohako{
@@ -70,4 +70,8 @@ p{
 
 .select-point{
   margin-left: 30px;
+}
+
+.container{
+  align-content: space-between;
 }
