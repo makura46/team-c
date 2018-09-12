@@ -6,8 +6,16 @@ use Slim\Http\Response;
 // TOPページのコントローラ
 $app->get('/', function (Request $request, Response $response) {
 
-    $data = [];
+	$session = $this->session->get("user_info");
+	if (!empty($session)) {
+		return $response->withRedirect('/top/');
+	}
 
-    // Render index view
-    return $this->view->render($response, '/index/index.twig', $data);
-});
+	$data = [];
+
+	return $this->view->render($response, '/index/index.twig', $data);
+
+}); 
+
+
+

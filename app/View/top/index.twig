@@ -7,8 +7,7 @@
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
 <link rel="stylesheet" href="/assets/css/oreno.css">
-
-
+<link rel="stylesheet" href="/assets/css/skins/_all-skins.min.css">
 <link rel="stylesheet" href="/assets/css/adminlte.min.css">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -18,42 +17,39 @@
 
 {% block page_content %}
 <body class="sidebar-mini sidebar-collapse">
-	<!-- Main content -->
+        <!-- Main content -->
   <div class="mainnohako">
-    <div class="col-md-2">
-      <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
-      <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
-    </div>
-    <div class="col-md-10">
-	   <ul class="list-group">
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-       <li class="list-group-item ichiran"><h5>俺たちの</h5><br>残り時間</li>
-     </ul>
+    <div class="col-md-12">
+           <h2 class="page-header">Theme</h2>
+     <div class="row">
+      {% for row in record %}
+     <!-- Items -->
+      <div class="col-md-4 link">
+          <a href="../theme/{{ row.id }}">
+        <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4><b>{{ row.title }}</b></h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="{{ row.imgPath }}" alt="Photo">
+
+                {% for item in row.items %}
+              <p>{{ item.name}}</p>
+                {% endfor %}
+              <span class="pull-right text-muted">{{ row.votes }} / {{ row.point }}  /Time </span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+      <!-- /Items -->
+         {% endfor %}
     </div>
    </div>
+   </div>
  </body>
-   <!-- /.content-wrapper -->
-
-
-
-
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

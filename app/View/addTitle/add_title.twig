@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}新規会員登録{% endblock %}
+{% block title %}新規テーマ追加{% endblock %}
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
@@ -12,14 +12,14 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <div class="page-header text-center">
-        <h1>新規大会作成</h1>
+        <h1>テーマの追加</h1>
     </div>
     <div class="container">
         <div class="box">
             <div class="row">
                 <div class="col-md-12">
                     <div class="well">
-                        <form id="loginForm" method="POST" action="/add/">
+                        <form id="loginForm" method="POST" action="/add/" enctype="multipart/form-data">
                             {% if error %}
                                 <div class="form-group">
                                     <div class="alert alert-danger" role="alert">{{ error }}</div>
@@ -32,7 +32,7 @@
 
                             <div class="form-group">
                                 <label><span class="btn-xs round btn-danger">必須</span>大会の詳細</label>
-                                <input type="text" class="form-control" id="title" name="title" value="{{ detail }}" required title="Please enter your tornament detail" placeholder="日本のお茶の種類で最も美味しいお茶を決定したいと思います。">
+                                <input type="text" class="form-control" id="title" name="detail" value="{{ detail }}" required title="Please enter your tornament detail" placeholder="日本のお茶の種類で最も美味しいお茶を決定したいと思います。">
                             </div>
 
                             <div class="form-group">
@@ -52,7 +52,7 @@
 
                             <div class="form-group">
                                 <label>画像</label>
-                                <input type="file" id="InputFile">
+                                <input type="file" id="InputFile" name="file">
                             </div>
 
                             <button type="submit" class="btn btn-info btn-block">新規登録</button>
