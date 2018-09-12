@@ -18,6 +18,10 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
     $param["id"] = $args['id'];
     $theme = $theme_dao->select($param, "", "", false);
 
+    if (empty($theme)) {
+        return $response->withRedirect('/top/');
+    }
+
     $data["theme"] = $theme;
 
     $param_item["themeId"] = $theme["id"];
