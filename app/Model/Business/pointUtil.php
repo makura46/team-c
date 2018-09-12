@@ -3,6 +3,15 @@
 use Model\Dao\Vote;
 use Model\Dao\User;
 
+/**
+ * Class PointUtil
+ *
+ * PointUtil Classです
+ *
+ * @copyright Ceres inc.
+ * @author y-fukumoto <y-fukumoto@ceres-inc.jp>
+ * @since 2018/09/12
+ */
 Class PointUtil
 {
 
@@ -16,7 +25,6 @@ Class PointUtil
      */
 
     private $_vote_dao;
-
 
     /**
      * PointUtil constructor.
