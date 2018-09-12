@@ -29,21 +29,14 @@
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="form-group col-md-5 lead">
+          {% for row in items %}
             <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
+              <label>
+                <input type="checkbox">
+                <h5>{{row.name}}</h5>
+              </label>
             </div>
-            <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
-            </div>
-            <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
-            </div>
+          {% endfor %}
           </div>
           <button type="" class="btn btn-primary btn-circle">+</button>
       </div>
