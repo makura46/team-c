@@ -4,6 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Model\Dao\Theme;
 use Model\Dao\Items;
+use Model\Dao\Vote;
 
 // TOPページのコントローラ
 $app->get('/top/', function (Request $request, Response $response) {
@@ -14,21 +15,19 @@ $app->get('/top/', function (Request $request, Response $response) {
 
 	$theme = new Theme($this->db); // Themeテーブルのインスタンスを作成
 	$items = new Items($this->db); // Itemsテーブルのインスタンスを作成
-	$param['id'] = '%';
-	$data = $theme->select($param, "id", "DESC", "", true);  // Themeテーブルから9999件のデータを取得
-	// テーマIDを利用し、票数の合計を取得
-	for ($i = 0; $i < 9999; $i++) { 
-		$sum = 0;
-		if (isset($data[$i]['id'])) {
-			$search['themeId'] = $data[$i]['id'];
-			$cnt = $items->select($search, "", "", 9999, true); // Itemsテーブルのカラムを取得
-			$sum = count($cnt);
-			$data[$i]['vote'] = $sum;
-		} else {
-			break;
-		}   
+	$vote = new Vote($this->db);   // Voteテーブルのインスタンスを作成	
 
+	$data = $theme->select([], 'id', "DESC", "", true);  
+	
+	foreach ($vote->voteCount($items) as $values){
+		$voteCountData[$values['themeId']] = $values;
 	}
+	foreach($data as $key => $value){
+		$data[$key]['items'] = $items->select(['themeId'=>$value['id']], 'itemId', '', 3, true);
+		$data[$key]['votes'] = $voteCountData[$value['id']]['votes'];
+		$data[$key]['point'] = $voteCountData[$value['id']]['point'];
+	}
+
 	$data['record'] = $data;
 
 	// Render index view
