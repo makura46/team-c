@@ -239,4 +239,8 @@ abstract class Dao
 
     }
 
+	public function getTableName() {
+		return $this->_table_name;
+	}
+
 }
