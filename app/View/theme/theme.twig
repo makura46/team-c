@@ -31,7 +31,7 @@
     <!-- form start -->
     <form role="form" method="post" action="/theme/" id="form_id">
       <div class="box-body">
-        <img src="{{ theme.imgPath }}" class="img-rounded col-md-6" alt="Cinque Terre">
+        <img src="{% if theme.imgPath  %}{{ theme.imgPath }}{% else %}http://y-ryu.xii.jp/wp/wp-content/uploads/2016/09/shouldnotdo.jpg{% endif %}" class="img-rounded col-md-6" alt="Cinque Terre">
           <div class="col-md-5 lead">
             投票に賭けるポイント
               <select class="select-point" name="point">
