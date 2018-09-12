@@ -7,8 +7,7 @@
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
 <link rel="stylesheet" href="/assets/css/oreno.css">
-
-
+<link rel="stylesheet" href="/assets/css/skins/_all-skins.min.css">
 <link rel="stylesheet" href="/assets/css/adminlte.min.css">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -20,17 +19,167 @@
 <body class="sidebar-mini sidebar-collapse">
 	<!-- Main content -->
   <div class="mainnohako">
-    <div class="col-md-2">
-      <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
-      <li class="list-group-item ichiran"><h5>俺たちの</h5></li>
-    </div>
-    <div class="col-md-10">
-	   <ul class="list-group">
-	    {% for row in record %}
-        <li class="list-group-item ichiran"><h5>{{ row.title }}</h5><br><h6>票数:  {{ row.vote }}</h6><br>残り時間</li>
-        {% endfor %}
+      {% for row in record %}
+    <div class="col-md-12">
+	   <h2 class="page-header">Theme</h2>
+     <div class="row">
+     <!-- Items -->
+      <div class="col-md-4 link">
+          <a href="../vote/">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4><b>日本で一番綺麗な海決定戦</b></h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/test.jpg" alt="Photo">
 
-     </ul>
+              <p>沖縄</p>
+              <p>和歌山</p>
+              <p>東京</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+      <!-- /Items -->
+         {% endfor %}
+
+         <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/eclipse.jpg" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+        <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/money.jpg" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+        <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/pelican.jpg" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+        <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/thunderbird.png" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+        <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/usb.jpg" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+        <!-- Items -->
+      <div class="col-md-4 link">
+        <a href="">
+          <!-- Box Comment -->
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <h4>Theme.theme</h4>
+            </div>
+            <div class="box-body">
+              <img class="img-responsive pad" src="/assets/img/while.jpg" alt="Photo">
+
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <p>Theme.item</p>
+              <span class="pull-right text-muted">sum(vote) / Time</span>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          </a>
+        </div>
+        <!-- /Items -->
+
     </div>
    </div>
  </body>
