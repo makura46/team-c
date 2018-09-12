@@ -5,6 +5,7 @@ use Slim\Http\Response;
 use Model\Dao\User;
 use Model\Dao\Theme;
 use Model\Dao\Items;
+use Model\Business\pointUtil;
 
 $app->get('/theme/{id}', function (Request $request, Response $response, $args){
     //GETされた内容を取得します。
@@ -21,7 +22,7 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
 
     $param_item["themeId"] = $theme["id"];
     $data["items"] = $items->select($param_item, "", "", "", true);
-    var_dump($data["items"]);
+    //var_dump($data["items"]);
     
     //$data = array();
 
@@ -30,30 +31,21 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
 
 });
 
-$app->post('/theme', function (Request $request, Response $response, $args) {
+$app->post('/theme/', function (Request $request, Response $response, $args) {
+    $req_data = $request->getParsedBody();
 
-    //themeDAOをインスタンス化
-    $theme = new Theme($this->db);
+    $point = new PointUtil($this->db);
+    $point->subPoint($req_data["userId"], $req_data["point"], $req_data["item"]);
+    $select_param = array("id" => $req_data["userId"]);
+    //var_dump($select_param);
 
-    //POSTされた内容を取得します
-    $data = $request->getParsedBody();
-    $param["id"] = $data["id"];
-    
-    $result = $theme->select($param, "", "", "", true);
+    //対象ユーザーの情報を取得する
+    $user = new User($this->db);
+    $result = $user->select($select_param, "", "", "1", false);
 
-    if($result == $param["id"]){
-        $data["theme"] = $data["theme"] + 1;
-        $theme->update($data);
-    }
+    //セッションのユーザー情報を更新
+    $this->session->set('user_info', $result);
 
-    $param["title"] = $data["title"];
-    $param["theme"] = $data["theme"];
-    $param["themeID"] = $data["themeID"];
-
-    //入力された情報から比べる物を取得
-    $data = $theme->select($param, "", "", "", true);
-
-    // Render index view
-    return $this->view->render($response, 'theme/theme.twig', $data);
+    return $response->withRedirect('/top/');
 
 });
