@@ -2,6 +2,8 @@
 
 namespace Model\Dao;
 
+use Doctrine\DBAL\Query\QueryBuilder;
+
 /**
  * Class Vote
  *
@@ -15,6 +17,26 @@ namespace Model\Dao;
  */
 class Vote extends Dao
 {
+
+	// idはソートしたい
+	public function voteCount($id, $table) {
+		$queryBuilder = new QueryBuilder($this->db);
+
+		$name = $table->getTableName();
+
+		$query = $queryBuilder
+			->select('SUM(*), CONUT(*)')
+			->from($this->_table_name . "," . $name)
+			->orderBy(":id", "DESC")
+			->setParameter(":id", $id)
+			->groupBy('themeId')
+			->execute();
+
+		return $query->FetchALL();
+		
+	}
+
+
 
 
 }
