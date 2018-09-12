@@ -53,7 +53,7 @@ $app->post('/add/', function (Request $request, Response $response) {
 	$themeID = $theme->insert(array("title"=>$data["title"], "detail"=>$data["detail"], "imgPath"=>"", "start"=>$start, "finish"=>$finish, "created"=>$created));
 
 	foreach ($data as $key => $val) {
-		if ($key == 'title' || $key == '') {
+		if ($key == 'title' || $key == 'detail') {
 			continue;
 		}
 		$items->insert(array('name'=>$val, 'themeId'=>$themeID, 'created'=>$created));
