@@ -18,25 +18,55 @@ use Doctrine\DBAL\Query\QueryBuilder;
 class Vote extends Dao
 {
 
-	// idはソートしたい
-	public function voteCount($id, $table) {
-		$queryBuilder = new QueryBuilder($this->db);
+    // idはソートしたい
+    public function voteCount($table)
+    {
 
-		$name = $table->getTableName();
+        $queryBuilder = new QueryBuilder($this->db);
 
-		$query = $queryBuilder
-			->select('SUM(*), CONUT(*)')
-			->from($this->_table_name . "," . $name)
-			->orderBy(":id", "DESC")
-			->setParameter(":id", $id)
-			->groupBy('themeId')
-			->execute();
+        $thisTable = $this->getTableName();
+        $name = $table->getTableName();
 
-		return $query->FetchALL();
-		
-	}
+        $query = $queryBuilder
+            ->select('i.themeId, COUNT(v.userId) AS votes, IFNULL(SUM(v.point), 0) AS point')
+            ->from($name, 'i')
+            ->leftJoin('i', $thisTable, 'v', 'v.itemid = i.itemid')
+            ->groupBy('i.themeId')
+            ->orderBy("i.themeId", "DESC")
+            ->execute();
 
+        return $query->FetchALL();
 
+    }
 
+    /**
+     * getUserHistory Function
+     *
+     * 投票履歴取得
+     *
+     * @copyright Ceres inc.
+     * @author y-fukumoto <y-fukumoto@ceres-inc.jp>
+     * @since 2018/09/12
+     */
+    public function getUserHistory($user_id)
+    {
+        $sql = "
+            SELECT name,point from vote left join items using (`itemId`) where userId = :id";
 
+        //プリペア
+        $statement = $this->db->prepare($sql);
+
+        // プレースホルダーに値をセット
+        $statement->bindValue(":id", (int)$user_id, \PDO::PARAM_INT);
+
+        //実行
+        $statement->execute();
+
+        //全件フェッチ
+        $result = $statement->fetchALL(\PDO::FETCH_ASSOC);
+
+        //フェッチした結果を返送
+        return $result;
+
+    }
 }

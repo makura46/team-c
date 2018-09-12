@@ -54,6 +54,24 @@
   height: 300px;
 }
 
+.select-radio{
+  position: relative;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.center-vote {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+}
+
+.select-point{
+  margin-left: 30px;
+}
+
 .container{
-  align-content: space-between; 
+  align-content: space-between;
 }

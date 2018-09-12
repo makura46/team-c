@@ -21,37 +21,57 @@
                     <div class="form-group">
                         <label for="email" class="control-label">保持ポイント</label>
                         <br>
-                        <h2>{{ session.user_info.point | number_format() }}pt</h2>
+                        <h2>{{ user.point | number_format() }}pt</h2>
                     </div>
                     <div class="form-group">
                         <label for="email" class="control-label">メールアドレス</label>
                         <br>
-                        {{ session.user_info.email }}
+                        {{ user.email }}
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label"> ニックネーム</label>
                         <br>
-                        {{ session.user_info.name }}
+                        {{ user.name }}
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label">郵便番号</label>
                         <br>
-                        {{ session.user_info.zipcode }}
+                        {{ user.zipcode }}
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label">住所</label>
                         <br>
-                        {{ session.user_info.address }}
+                        {{ user.address }}
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label">電話番号</label>
                         <br>
-                        {{ session.user_info.tel }}
+                        {{ user.tel }}
                     </div>
                 </div>
             </div>
         </div>
-{% endblock %}
+        <div class="box">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well">
+                        <table class="table table-striped border">
+                            <tr>
+                                <th>投票アイテム</th>
+                                <th>投票ポイント</th>
+                            </tr>
+                            {% for row in vote_history %}
+                                <tr>
+                                    <td>{{ row.name }}</td>
+                                    <td>{{ row.point | number_format }}pt</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
 
-{#共通フッタとして追記したい情報を記載します。#}
+        {#共通フッタとして追記したい情報を記載します。#}
 {% block footer_scripts_add %}{% endblock %}
