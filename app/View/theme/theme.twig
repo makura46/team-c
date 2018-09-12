@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}theme{% endblock %}
+{% block title %}vote{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -20,37 +20,45 @@
 <body class="sidebar-mini sidebar-collapse">
   <div class="box box-primary">
     <div class="box-header with-border">
-      <h5 class="box-title">ThemeID</h5>
-      <h5 class="box-title">{{theme.title}}</h5>
+      <label class="theme-title">
+        <!-- title{name}のような変数を代入 -->
+        日本で一番うまいお茶決定戦！
+      </label>
+      <p>日本ではいろんな種類のお茶が販売されています。どのお茶が一番美味しいか決めたいと思います！</p>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
     <form role="form">
       <div class="box-body">
         <img src="/assets/img/test.jpg" class="img-rounded col-md-6" alt="Cinque Terre">
-          <div class="form-group col-md-5 lead">
-            <div class="checkbox">
+          <div class="col-md-5 lead">
+            <div class="select-radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="1"> 沖縄
             </label>
             </div>
-            <div class="checkbox">
+            <div class="select-radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="2"> 和歌山
             </label>
             </div>
-            <div class="checkbox">
+            <div class="select-radio">
             <label>
-              <input type="checkbox"> Check me out
+              <input type="radio" name="item" value="3"> 東京
+            </label>
+            </div>
+            <div class="select-radio">
+            <label>
+              <input type="radio" name="item" value="4"> <input type="text" name="item" value="" placeholder="俺/私の1位は！">
             </label>
             </div>
           </div>
-          <button type="" class="btn btn-primary btn-circle">+</button>
       </div>
       <!-- /.box-body -->
 
       <div class="box-footer">
-        <button type="submit" class="btn btn-success center-block">Submit</button>
+        <button type="submit" class="btn btn-success center-vote">投票する！</button>
+        <span class="pull-right text-muted">sum(vote) / Time</span>
       </div>
     </form>
   </div>
@@ -62,4 +70,19 @@
 <script src="/assets/js/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/adminlte.min.js"></script>{% endblock %}
+<script src="/assets/js/adminlte.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+var number;
+$(function(){
+    $('input').click(function(){
+        if($(this).val() == number) {
+            $(this).prop('checked', false);
+            number = 0;
+        } else {
+            number = $(this).val();
+        }
+    });
+});
+</script>
+{% endblock %}
