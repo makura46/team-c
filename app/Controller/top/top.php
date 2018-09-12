@@ -24,8 +24,8 @@ $app->get('/top/', function (Request $request, Response $response) {
 	}
 	foreach($data as $key => $value){
 		$data[$key]['items'] = $items->select(['themeId'=>$value['id']], 'itemId', '', 3, true);
-		$data[$key]['votes'] = $voteCountData[$value['id']]['votes']?$voteCountData[$value['id']]['votes']:0;
-		$data[$key]['point'] = $voteCountData[$value['id']]['point']?$voteCountData[$value['id']]['point']:0;
+        $data[$key]['votes'] = $voteCountData[$value['id']]['votes'] ?? 0;
+        $data[$key]['point'] = $voteCountData[$value['id']]['point'] ?? 0;
         $data[$key]['imgPath'] = $data[$key]['imgPath'] ? $data[$key]['imgPath'] : 'http://y-ryu.xii.jp/wp/wp-content/uploads/2016/09/shouldnotdo.jpg';
 	}
 
