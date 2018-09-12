@@ -41,22 +41,9 @@
               </select>
             <div class="select-radio">
             <label>
-              <input type="radio" name="item" value="1"> 沖縄
-            </label>
-            </div>
-            <div class="select-radio">
-            <label>
-              <input type="radio" name="item" value="2"> 和歌山
-            </label>
-            </div>
-            <div class="select-radio">
-            <label>
-              <input type="radio" name="item" value="3"> 東京
-            </label>
-            </div>
-            <div class="select-radio">
-            <label>
-              <input type="radio" name="item" value="4"> <input type="text" name="item" value="" placeholder="俺/私の1位は！">
+            {% for row in items %}
+              <input type="radio" name="item" value="{{row.itemId}}"> {{row.name}} <br>
+            {% endfor %}
             </label>
             </div>
           </div>
