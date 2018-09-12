@@ -69,4 +69,23 @@ class Vote extends Dao
         return $result;
 
     }
+
+    public function voteCountByThemeId($themeId)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+
+        $thisTable = $this->getTableName();
+
+        $query = $queryBuilder->select('i.themeId, COUNT(v.userId) AS votes, IFNULL(SUM(v.point), 0) AS point')
+            ->from('items', 'i')
+            ->leftJoin('i', $thisTable, 'v', 'v.itemid = i.itemid')
+            ->andWhere('i.themeId = :themeId')
+            ->setParameter(':themeId', $themeId)
+            ->groupBy('i.themeId')
+            ->orderBy("i.themeId", "DESC")
+            ->execute();
+
+        return $query->fetch();
+
+    }
 }

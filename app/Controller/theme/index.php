@@ -6,6 +6,8 @@ use Model\Dao\User;
 use Model\Dao\Theme;
 use Model\Dao\Items;
 use Model\Business\pointUtil;
+use Model\Dao\Vote;
+
 
 $app->get('/theme/{id}', function (Request $request, Response $response, $args){
     //GETされた内容を取得します。
@@ -23,6 +25,7 @@ $app->get('/theme/{id}', function (Request $request, Response $response, $args){
     }
 
     $data["theme"] = $theme;
+    $data["record"] = (new Vote($this->db))->voteCountByThemeId($param["id"]);
 
     $param_item["themeId"] = $theme["id"];
     $data["items"] = $items->select($param_item, "", "", "", true);

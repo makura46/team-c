@@ -52,7 +52,7 @@
 
       <div class="box-footer">
         <button type="submit" class="btn btn-success center-block">投票する！</button>
-        <span class="pull-right text-muted">sum(vote) / Time</span>
+          <span class="pull-right text-muted">{{ record.votes }} / {{ redord.point }} / Time</span>
       </div>
       <input type="hidden" name="userId" value="{{session.user_info.id}}">
     </form>
